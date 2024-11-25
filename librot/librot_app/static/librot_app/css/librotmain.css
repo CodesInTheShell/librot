@@ -1,0 +1,15 @@
+.scrollable-div-chat-box {
+    max-height: 300px; /* Set the maximum height as desired */
+    overflow-y: auto; /* Enable vertical scrolling */
+    /* Additional styling (optional) */
+    /* border: 1px solid #ccc; */
+    /* padding: 10px; */
+}
+
+.scrollable-div-chat-history-col {
+    max-height: 800px; /* Set the maximum height as desired */
+    overflow-y: auto; /* Enable vertical scrolling */
+    /* Additional styling (optional) */
+    /* border: 1px solid #ccc; */
+    /* padding: 10px; */
+}

@@ -1,0 +1,71 @@
+####################### Daily start #######################
+Process below assume you already downloaded the guff files and virtualenv activated
+
+$env:LIBROT_GPT_GUFF_PATH  = 'C:\\Users\\Dantebytes\\Documents\\ Files\\guff_files\\mistral-7b-openorca.Q2_K.gguf'
+
+$env:LIBROT_SENT_TRANS_GUFF_PATH  = 'C:\\Users\\Dantebytes\\Documents\\ Files\\guff_files\\all-MiniLM-L12-v2.F32.gguf'
+
+$env:LIBROT_SECRET_KEY  = 'librot-django-insecure-key'
+
+python manage.py runserver 
+
+####################### TODO #######################
+- Add skip searching augments
+- Thread pool on searching augments
+- Generate sentence from input (sometimes input is large) for sentence similarity first before searching context
+- Use vector database for to embed and search, currently it is just POC and not suitable solution.
+
+
+
+
+####################### Good references #######################
+### Mistral Guff download
+https://huggingface.co/TheBloke/Mistral-7B-OpenOrca-GGUF/tree/main
+
+### Sentence similarity Guff download
+https://huggingface.co/leliuga/all-MiniLM-L12-v2-GGUF/tree/main
+
+
+####################### OLD DOCS #######################
+### STEP 
+## Create and activate a python virtual environment. Run pip install -r requirments.txt or individual pip below. 
+# python -m pip install --upgrade pip
+# pip install django
+# pip install 'transformers[torch]'
+# pip install llama-cpp-python
+# pip install --upgrade huggingface_hub
+# pip install ipython
+# pip install channels
+
+# Note: Activate virtualenv before proceeding commands
+
+### STEP 
+## Login to save your token, Note: may not need to add it as git credential
+#> huggingface-cli login
+
+
+### STEP 
+## Set the guff file path environment variable LIBROT_GPT_GUFF_PATH
+## You can download guff file by any means and just note the path to the file. For this example, we will download using huggingface_hub by opening a python shell
+## Downloading may take a while.
+#>>> python 
+#>>> from huggingface_hub import hf_hub_download
+#>>> repo_id="google/gemma-2b-it"
+#>>> guff_filename="gemma-2b-it.gguf"
+#>>> model_path = hf_hub_download(repo_id, filename=guff_filename)
+#>>> print('model_path: ', model_path) # Take note of the path
+
+
+### STEP 
+## Run the app, while on same directory with manage.py. Note that setting environment variable differs on linux and windows.
+#>>> $env:LIBROT_GPT_GUFF_PATH = 'the model_path of the guff file' # on windows
+#>>> export LIBROT_GPT_GUFF_PATH = 'the model_path of the guff file' # on linux
+#>>> python manage.py runserver
+
+
+
+#######################
+# Most step provided are for development purposes and not secure and intended for production use with high user traffic.
+# This is just a regular python django project so check out django documentation for production deployment. 
+
+
