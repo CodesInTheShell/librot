@@ -3,6 +3,8 @@ Libre - Free
 Libro - Book
 Bot - Chatbot
 
+Watch it here: https://www.youtube.com/watch?v=tWTNQhKNQd8&t=1s
+
 A chatGPT like app for local that runs on your computer. Can store knowledge base data powered with RAG system.
 
 
